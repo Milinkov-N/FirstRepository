@@ -61,10 +61,10 @@ body, a, h1 {
     font-family: 'Gotham Pro Regular';
 }
 
-.body {
+/* .body {
     display: flex;
     flex-direction: column;
-}
+} */
 
 .header {
     background-color: rgb(43, 43, 43);
@@ -217,7 +217,7 @@ body, a, h1 {
 } */
 
 .advantages {
-    width: 1170px;
+    /* width: 1170px; */
     background-color: rgb(43, 43, 43);
     padding-top: 60px;
     padding-bottom: 60px;
@@ -342,7 +342,7 @@ body, a, h1 {
 }
 
 .champions {
-    width: 1170px;
+    /* width: 1170px; */
     background-color: rgb(43, 43, 43);
     padding-bottom: 75px;
 }
