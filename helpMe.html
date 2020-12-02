@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1 {
+            font-size: 154px;
+            text-transform: uppercase;
+            font-family: 'Segoe UI' , sans-serif;
+            color: #666;
+            text-align: center;
+            margin-top: 15%;
+        }
+
+        div {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            width: 250px;
+            height: 60px;
+            background: #2a5bfa;
+            box-sizing: border-box;
+            border: 2px solid #2a5bfa;
+            font-size: 17px;
+            text-transform: uppercase;
+            font-family: 'Segoe UI' , sans-serif;
+            font-weight: 700;
+            color: white;
+            border-radius: 40px;
+            margin: 0 auto;
+            outline: none;
+            transition: .3s ease-in-out;
+            cursor: pointer;
+            box-shadow: 0 0 18px 5px rgba(0, 0, 0, .15);
+        }
+
+        button:hover {
+            background: none;
+            color: #333;
+            box-shadow: none;
+        }
+
+        .like-list {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .like {
+            width: 290px;
+            height: 50px;
+            background: #2a5bfa;
+            border-radius: 10px;
+            margin: 10px 0;
+            animation: like-animate .4s ease-in-out .1s forwards;
+            opacity: 0;
+            font-family: 'Segoe UI' , sans-serif;
+            color: #fff;
+        }
+        
+        @keyframes like-animate {
+            0% {
+                margin-right: 140px;
+            }
+
+            100% {
+                opacity: 1;
+                margin-right: unset;
+            }
+        }
+
+        .user-name {
+            text-transform: uppercase;
+            font-family: 'Segoe UI' , sans-serif;
+            font-style: 12px;
+            font-weight: 700;
+            margin-right: 4px;
+            color: rgb(97, 255, 221);
+        }
+
+
+        @media (max-width: 1838px) {
+            .like-list {
+                position: unset;
+                top: unset;
+                margin: 0 auto;
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 670px) {
+            h1 {
+                font-size: 74px;
+            }
+        }
+
+        @media (max-width: 370px) {
+            h1 {
+                font-size: 54px;
+            }
+
+            button {
+                transform: scale(.8);
+            }
+
+            .like-list {
+                width: 290px;
+            }
+
+            .like {
+                transform: scale(.8);
+                margin: 6px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Хочю домои</h1>
+    <div>
+        <button id="btn" onclick="addLike()">Ставь лаек если тоже</button>
+    </div>
+
+    <div class="like-list" id="like-list"></div>
+
+    <script>
+        var btn = document.querySelector('#btn');
+        var likeList = document.getElementById('like-list');
+
+        var randomNames = ["Вася Пупкин", 
+                           "Дмитрий Шутов", 
+                           "Иван Иванович", 
+                           "Света Светлая", 
+                           "Анимешник",
+                           "Егор Харалдин",
+                           "Лох",
+                           "Я",
+                           "Он",
+                           "Лох спарава",
+                           "Лох слева",
+                           "Ковид",
+                           "В.В. Путин",
+                           "Мать",
+                           "Чевапчич",
+                           "Мага"];
+
+        function addLike() {
+
+            var getRandomNumber = Math.floor(Math.random() * randomNames.length);
+            console.log(getRandomNumber);
+
+            var node = document.createElement("div");
+            var span = document.createElement("span");
+            node.className = "like";
+            span.className = "user-name";
+            
+            var spannode = document.createTextNode(`${randomNames[getRandomNumber]}`);
+            var textnode = document.createTextNode("поставил лайк!");
+            span.appendChild(spannode);
+            node.appendChild(span);
+            node.appendChild(textnode);
+            likeList.prepend(node);
+
+        };
+
+
+    </script>
+</body>
+</html>
